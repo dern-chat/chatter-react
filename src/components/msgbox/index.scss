@@ -1,0 +1,34 @@
+@import '@/index.scss';
+
+.msg-box {
+    height: fit-content;
+    border: none;
+    border-radius: 6px;
+    background-color: $primary-pink;
+    width: fit-content;
+    min-width: 5rem;
+    max-width: 20rem;
+    color: white;
+    
+    .msg-box__author {
+        margin-top: .3rem;
+        margin-left: .3rem;
+        font-size: .6rem;
+        color: $faded-white;
+    }
+
+    .msg-box__content {
+        margin-top: .3rem;
+        margin-left: .3rem;
+        margin-right: .3rem;
+        font-size: .8rem;   
+    }
+
+    .msg-box__time {
+        margin-right: .3rem;
+        font-size: .6rem;
+        color: $faded-white;
+        text-align: end;
+    }
+
+}

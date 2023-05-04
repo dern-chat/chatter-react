@@ -1,0 +1,50 @@
+$primary-purple: #511c69;
+$secondary-purple: #2d2930;
+$primary-pink: #8a407d;
+$secondary-pink: #8d3d86;
+$primary-green: #acca0f;
+$faded-white: #d5d5d5;
+
+@font-face {
+    font-family: 'Baloo 2';
+    src: url('src/assets/fonts/Baloo2-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'ZCOOL KuaiLe';
+    src: url('src/assets/fonts/ZCOOLKuaiLe-Regular.ttf');
+}
+
+* {
+    font-family: 'Baloo 2', sans-serif;
+}
+
+// reset body and html
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#root {
+    width: 100%;
+}
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
