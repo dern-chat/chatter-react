@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react'
 import { socket } from '@/socket'
 import sendBtn from '@/assets/icons/send.svg'
 import './index.scss'
-import axios from 'axios'
 import Message from '@/types/message'
+import { axiosInstance } from '@/stores/store'
 
 function sendMessage(msg: string) {
   if (!msg) return
   console.log('Sending message:', msg)
   // send message to server using axios
   const message = new Message('allesfresser', msg, new Date().toISOString())
-  axios.post('http://localhost:2323/api/message', message)
+  axiosInstance.post('/message', message)
 }
 
 function MsgBar() {
