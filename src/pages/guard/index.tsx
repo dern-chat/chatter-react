@@ -1,9 +1,12 @@
 import GuardBox from '@/components/guardbox'
 import './index.scss'
 
+
 function Guard() {
   return (
-    <GuardBox />
+    <div className="guard">
+      <GuardBox />
+    </div>
   )
 }
 
