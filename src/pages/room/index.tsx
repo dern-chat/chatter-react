@@ -14,6 +14,8 @@ export interface RoomProp {
   setUsers: React.Dispatch<React.SetStateAction<string[]>>
   msgs: Message[]
   setMsgs: React.Dispatch<React.SetStateAction<Message[]>>
+  nickname: string
+  setNickname: React.Dispatch<React.SetStateAction<string>>
 }
 
 function getRoomInfo(roomProp: RoomProp) {
@@ -24,6 +26,7 @@ function getRoomInfo(roomProp: RoomProp) {
       roomProp.setRoomName(res.data.roomName)
       roomProp.setUsers(res.data.users)
       roomProp.setMsgs(res.data.msgs)
+      roomProp.setNickname(res.data.nickname)
     }
     )
 }
@@ -39,7 +42,7 @@ function Room({ roomProp }: { roomProp: RoomProp }) {
       <div className="msgs">
         {roomProp.msgs.map((msg) => <div className="msg-container" key={msg.time}><MsgBox message={msg} /></div>)}
       </div>
-      <MsgBar />
+      <MsgBar nickname={roomProp.nickname } />
     </div>
   )
 }
