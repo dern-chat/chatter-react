@@ -7,6 +7,7 @@ function InputBox({ placeholder, value, onChange }: { placeholder: string; value
     <input className="input-box"
       placeholder={placeholder}
       value={value}
+      type={placeholder === 'room passphrase' ? 'password' : 'text'}
       onChange={onChange}
     />
   )
