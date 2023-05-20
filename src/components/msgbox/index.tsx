@@ -1,7 +1,16 @@
 import Message from '@/types/message'
 import './index.scss'
+import { useEffect } from 'react'
+
+function autoScroll() {
+  window.scrollTo(0, document.body.scrollHeight)
+}
 
 function MsgBox({ message }: { message: Message }) {
+  useEffect(() => {
+    autoScroll()
+  }, [])
+ 
   return (
     <div className="msg-box">
       <div className="msg-box__author">{message.author}</div>
