@@ -32,7 +32,6 @@ function getRoomInfo(roomProp: RoomProp) {
 }
 
 function Room({ roomProp }: { roomProp: RoomProp }) {
-  // print "Room component loaded" when component is loaded
   useEffect(() => {
     getRoomInfo(roomProp)
   }, [])
@@ -40,9 +39,13 @@ function Room({ roomProp }: { roomProp: RoomProp }) {
     <div className="room">
       <TopBar nicknames={roomProp.users} roomName={roomProp.roomName} />
       <div className="msgs">
-        {roomProp.msgs.map((msg) => <div className="msg-container" key={msg.time}><MsgBox message={msg} /></div>)}
+        {roomProp.msgs.map((msg) =>
+          <div className="msg-container" key={msg.time} style={msg.author === roomProp.nickname ? { justifyContent: 'flex-end' } : { justifyContent: 'flex-start' }}>
+            <MsgBox message={msg} />
+          </div>
+        )}
       </div>
-      <MsgBar nickname={roomProp.nickname } />
+      <MsgBar nickname={roomProp.nickname} />
     </div>
   )
 }
