@@ -22,7 +22,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 95%;
+    overflow-y: auto;
+    margin-bottom: 1rem;
 }
 
 .msg-container {
@@ -34,8 +36,12 @@ body {
 }
 
 .msg-bar {
-    z-index: 1;
-    // place the message bar bottom of the page
-    position: fixed;
+    width: 98%;
+    position: sticky;
     bottom: 1rem;
+}
+
+.top-bar {
+    position: sticky;
+    top: 0;
 }
