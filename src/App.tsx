@@ -30,13 +30,20 @@ function App() {
         const msgs = document.querySelector('.msgs')
         msgs?.scrollTo(0, msgs.scrollHeight)
       }
-      , 100)
+        , 100)
+    }
+
+    function onUserEnter(user: string) {
+      console.log('onUserEnter', user)
+      setUsers((users) => [...users, user])
     }
 
     socket.on('broadcast-message', onMessage)
+    socket.on('broadcast-user-enter', onUserEnter)
 
     return () => {
       socket.off('broadcast-message', onMessage)
+      socket.off('broadcast-user-enter', onUserEnter)
     }
   }, [])
 
