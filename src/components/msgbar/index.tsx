@@ -21,9 +21,9 @@ function MsgBar({ nickname }: { nickname: string }) {
         placeholder="Type a message"
         value={msg}
         onChange={e => setMsg(e.target.value)}
-        onKeyDown={(e) => {if (e.key === 'Enter') {setMsg(''); sendMessage(msg, nickname)}}}
+        onKeyDown={(e) => { if (e.key === 'Enter') { setMsg(''); sendMessage(msg, nickname) } }}
       />
-      <img src={sendBtn} className="send-btn" onClick={() => {setMsg(''); sendMessage(msg, nickname)}} />
+      <img src={sendBtn} className="send-btn" onClick={() => { setMsg(''); sendMessage(msg, nickname) }} />
     </div>
   )
 }

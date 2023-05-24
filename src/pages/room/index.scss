@@ -1,47 +1,47 @@
 @import '@/index.scss';
 
 body {
-    background-color: $primary-purple;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  background-color: $primary-purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .room {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .msgs {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 95%;
-    overflow-y: auto;
-    margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  height: 100%;
+  overflow-y: auto;
+  margin-bottom: 1rem;
 }
 
 .msg-container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-bottom: .3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: .3rem;
 }
 
 .msg-bar {
-    width: 98%;
-    position: sticky;
-    bottom: 1rem;
+  width: 98%;
+  position: sticky;
+  bottom: 1rem;
 }
 
 .top-bar {
-    position: sticky;
-    top: 0;
+  position: sticky;
+  top: 0;
 }

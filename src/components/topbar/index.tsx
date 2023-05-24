@@ -7,7 +7,6 @@ function leave() {
   window.location.reload()
 }
 
-// takes a nicknames, roomname prop
 function TopBar({ nicknames, roomName }: { nicknames: string[]; roomName: string }) {
   return (
     <div className="top-bar">

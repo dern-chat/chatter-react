@@ -14,7 +14,6 @@ export interface GuardBoxProp {
   setMsgs: React.Dispatch<React.SetStateAction<Message[]>>
 }
 
-
 function joinRoom(passphrase: string, nickname: string) {
   console.log('join room', passphrase, nickname)
   axiosInstance.post('/join-room', {
@@ -40,20 +39,20 @@ function GuardBox() {
     <div className="guard-box">
       <div className="container">
         <div className="title">
-            <div className="name logo">
-                dern
-            </div>
-            <div className="slogan">
-                anonymous volatile chat platform
-            </div>
+          <div className="name logo">
+            dern
+          </div>
+          <div className="slogan">
+            anonymous volatile chat platform
+          </div>
         </div>
       </div>
       <div className="form"
-        onKeyDown={(e) => {if (e.key === 'Enter') {joinRoom(passphrase, nickname)}}}
+        onKeyDown={(e) => { if (e.key === 'Enter') { joinRoom(passphrase, nickname) } }}
       >
-            <InputBox placeholder="room passphrase" value={passphrase} onChange={(e) => setPassphrase(e.target.value)} />
-            <InputBox placeholder="nickname" value={nickname} onChange={(e) => setNickname(e.target.value)} />
-            <Button label="Join" onClick={() => joinRoom(passphrase, nickname)} />
+        <InputBox placeholder="room passphrase" value={passphrase} onChange={(e) => setPassphrase(e.target.value)} />
+        <InputBox placeholder="nickname" value={nickname} onChange={(e) => setNickname(e.target.value)} />
+        <Button label="Join" onClick={() => joinRoom(passphrase, nickname)} />
       </div>
     </div>
   )
