@@ -3,7 +3,8 @@ import Guard from './pages/guard'
 import Message from './types/message'
 import './index.scss'
 import Room, { RoomProp } from './pages/room'
-import { socket } from './socket'
+import { socket } from './services/socket'
+import { MESSAGE_EVENT, USER_JOIN_EVENT } from './services/event'
 
 function App() {
   const [roomName, setRoomName] = useState('')
@@ -38,12 +39,12 @@ function App() {
       setUsers((users) => [...users, user])
     }
 
-    socket.on('broadcast-message', onMessage)
-    socket.on('broadcast-user-enter', onUserEnter)
+    socket.on(MESSAGE_EVENT, onMessage)
+    socket.on(USER_JOIN_EVENT, onUserEnter)
 
     return () => {
-      socket.off('broadcast-message', onMessage)
-      socket.off('broadcast-user-enter', onUserEnter)
+      socket.off(MESSAGE_EVENT, onMessage)
+      socket.off(USER_JOIN_EVENT, onUserEnter)
     }
   }, [])
 
