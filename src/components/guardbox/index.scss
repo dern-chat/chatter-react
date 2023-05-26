@@ -1,48 +1,48 @@
 @import '@/index.scss';
 
 .guard-box {
-    margin: 4rem 4rem;
-    width: 30rem;
-    height: 30rem;
-    background-color: $secondary-purple;
-    border-radius: 45px;
-    color: white;
+  margin: 4rem 4rem;
+  width: 30rem;
+  height: 30rem;
+  background-color: $secondary-purple;
+  border-radius: 45px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .name {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    font-size: 6rem;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .slogan {
+    width: 100%;
+    font-size: .9rem;
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+
+  .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 50%;
+  }
 
-    .name {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-        font-size: 6rem;
-        text-align: center;
-        margin-bottom: 0;
-        padding-bottom: 0;
-    }
+  .input-box {
+    margin-bottom: 1rem;
+  }
 
-    .slogan {
-        width: 100%;
-        font-size: .9rem;
-        text-align: center;
-        margin-bottom: 8rem;
-    }
-
-    .form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 50%;
-    }
-
-    .input-box {
-        margin-bottom: 1rem;
-    }
-
-    .button {
-        width: 75%;
-    }
+  .button {
+    width: 75%;
+  }
 }

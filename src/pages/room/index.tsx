@@ -2,10 +2,9 @@ import TopBar from '@/components/topbar'
 import MsgBox from '@/components/msgbox'
 import MsgBar from '@/components/msgbar'
 import Message from '@/types/message'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import './index.scss'
 import { axiosInstance } from '@/stores/store'
-
 
 export interface RoomProp {
   roomName: string
@@ -19,10 +18,8 @@ export interface RoomProp {
 }
 
 function getRoomInfo(roomProp: RoomProp) {
-  // get room info from server with cookie token using axios
   axiosInstance.get('/room-info')
     .then((res) => {
-      console.log(res.data)
       roomProp.setRoomName(res.data.roomName)
       roomProp.setUsers(res.data.users)
       roomProp.setMsgs(res.data.msgs)
@@ -32,9 +29,12 @@ function getRoomInfo(roomProp: RoomProp) {
 }
 
 function Room({ roomProp }: { roomProp: RoomProp }) {
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     getRoomInfo(roomProp)
   }, [])
+
   return (
     <div className="room">
       <TopBar nicknames={roomProp.users} roomName={roomProp.roomName} />
@@ -44,6 +44,7 @@ function Room({ roomProp }: { roomProp: RoomProp }) {
             <MsgBox message={msg} />
           </div>
         )}
+        <div ref={messagesEndRef} />
       </div>
       <MsgBar nickname={roomProp.nickname} />
     </div>

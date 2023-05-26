@@ -6,8 +6,6 @@ import { axiosInstance } from '@/stores/store'
 
 function sendMessage(msg: string, nickname: string) {
   if (!msg) return
-  console.log('Sending message:', msg)
-  // send message to server using axios
   const message = new Message(nickname, msg, new Date().toISOString())
   axiosInstance.post('/message', message)
 }
@@ -21,9 +19,9 @@ function MsgBar({ nickname }: { nickname: string }) {
         placeholder="Type a message"
         value={msg}
         onChange={e => setMsg(e.target.value)}
-        onKeyDown={(e) => {if (e.key === 'Enter') {setMsg(''); sendMessage(msg, nickname)}}}
+        onKeyDown={(e) => { if (e.key === 'Enter') { setMsg(''); sendMessage(msg, nickname) } }}
       />
-      <img src={sendBtn} className="send-btn" onClick={() => {setMsg(''); sendMessage(msg, nickname)}} />
+      <img src={sendBtn} className="send-btn" onClick={() => { setMsg(''); sendMessage(msg, nickname) }} />
     </div>
   )
 }

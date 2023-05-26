@@ -2,12 +2,11 @@ import leaveRoom from '@/assets/icons/leave.svg'
 import './index.scss'
 
 function leave() {
-  console.log('Leave')
   document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+  document.cookie = 'nickname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
   window.location.reload()
 }
 
-// takes a nicknames, roomname prop
 function TopBar({ nicknames, roomName }: { nicknames: string[]; roomName: string }) {
   return (
     <div className="top-bar">

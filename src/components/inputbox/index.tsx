@@ -1,7 +1,7 @@
 import './index.scss'
 
 // takes a label prop
-function InputBox({ placeholder, value, onChange }: { placeholder: string; value: string; onChange: (e: any) => void }) {
+function InputBox({ placeholder, value, onChange }: { placeholder: string; value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }) {
   // return the input box
   return (
     <input className="input-box"

@@ -3,11 +3,10 @@ import Guard from './pages/guard'
 import Message from './types/message'
 import './index.scss'
 import Room, { RoomProp } from './pages/room'
-import { socket } from './socket'
-
+import { socket } from './services/socket'
+import { MESSAGE_EVENT, USER_JOIN_EVENT } from './services/event'
 
 function App() {
-  const [isConnected, setIsConnected] = useState(socket.connected)
   const [roomName, setRoomName] = useState('')
   const [messages, setMessages] = useState<Message[]>([])
   const [users, setUsers] = useState<string[]>([])
@@ -25,33 +24,31 @@ function App() {
   }
 
   useEffect(() => {
-    function onConnect() {
-      setIsConnected(true)
-    }
-
-    function onDisconnect() {
-      setIsConnected(false)
-    }
-
     function onMessage(msg: Message) {
-      console.log('onMessage', msg)
       setMessages((messages) => [...messages, msg])
+      setTimeout(() => {
+        const msgs = document.querySelector('.msgs')
+        msgs?.scrollTo(0, msgs.scrollHeight)
+      }
+        , 100)
     }
 
-    socket.on('connect', onConnect)
-    socket.on('disconnect', onDisconnect)
-    socket.on('broadcast-message', onMessage)
+    function onUserEnter(user: string) {
+      setUsers((users) => [...users, user])
+    }
+
+    socket.on(MESSAGE_EVENT, onMessage)
+    socket.on(USER_JOIN_EVENT, onUserEnter)
 
     return () => {
-      socket.off('connect', onConnect)
-      socket.off('disconnect', onDisconnect)
-      socket.off('broadcast-message', onMessage)
+      socket.off(MESSAGE_EVENT, onMessage)
+      socket.off(USER_JOIN_EVENT, onUserEnter)
     }
   }, [])
-  
+
   return (
     <>
-     {document.cookie.includes('token') ? <Room roomProp={roomProp}  /> : <Guard />}
+      {document.cookie.includes('nickname') ? <Room roomProp={roomProp} /> : <Guard />}
     </>
   )
 }
