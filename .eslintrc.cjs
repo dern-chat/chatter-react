@@ -12,6 +12,7 @@ module.exports = {
     'react-refresh/only-export-components': 'warn',
     'react-hooks/exhaustive-deps': 'off',
     'no-multiple-empty-lines': ['warn', { max: 1, maxEOF: 1 }],
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
     quotes: ['warn', 'single', { avoidEscape: true }],
   },
 }
