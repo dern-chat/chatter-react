@@ -6,8 +6,6 @@ import { axiosInstance } from '@/stores/store'
 
 function sendMessage(msg: string, nickname: string) {
   if (!msg) return
-  console.log('Sending message:', msg)
-  // send message to server using axios
   const message = new Message(nickname, msg, new Date().toISOString())
   axiosInstance.post('/message', message)
 }

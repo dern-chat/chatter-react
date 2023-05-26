@@ -15,18 +15,12 @@ export interface GuardBoxProp {
 }
 
 function joinRoom(passphrase: string, nickname: string) {
-  console.log('join room', passphrase, nickname)
   axiosInstance.post('/join-room', {
     passphrase,
     nickname
   }).then((res) => {
-    console.log(res.data)
     document.cookie = `token=${res.data.token}`
-    console.log('room name', res.data.roomName)
     window.location.reload()
-  }
-  ).catch((err) => {
-    console.log(err)
   }
   )
 }

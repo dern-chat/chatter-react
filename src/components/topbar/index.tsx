@@ -2,7 +2,6 @@ import leaveRoom from '@/assets/icons/leave.svg'
 import './index.scss'
 
 function leave() {
-  console.log('Leave')
   document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
   window.location.reload()
 }

@@ -25,7 +25,6 @@ function App() {
 
   useEffect(() => {
     function onMessage(msg: Message) {
-      console.log('onMessage', msg)
       setMessages((messages) => [...messages, msg])
       setTimeout(() => {
         const msgs = document.querySelector('.msgs')
@@ -35,7 +34,6 @@ function App() {
     }
 
     function onUserEnter(user: string) {
-      console.log('onUserEnter', user)
       setUsers((users) => [...users, user])
     }
 
