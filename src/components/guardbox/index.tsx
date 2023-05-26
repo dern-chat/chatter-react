@@ -20,6 +20,7 @@ function joinRoom(passphrase: string, nickname: string) {
     nickname
   }).then((res) => {
     document.cookie = `token=${res.data.token}`
+    document.cookie = `nickname=${nickname}`
     window.location.reload()
   }
   )

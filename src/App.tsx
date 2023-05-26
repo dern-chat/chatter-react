@@ -48,7 +48,7 @@ function App() {
 
   return (
     <>
-      {document.cookie.includes('token') ? <Room roomProp={roomProp} /> : <Guard />}
+      {document.cookie.includes('nickname') ? <Room roomProp={roomProp} /> : <Guard />}
     </>
   )
 }
