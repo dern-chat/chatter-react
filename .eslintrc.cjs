@@ -14,5 +14,6 @@ module.exports = {
     'no-multiple-empty-lines': ['warn', { max: 1, maxEOF: 1 }],
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     quotes: ['warn', 'single', { avoidEscape: true }],
+    semi: ['warn', 'never']
   },
 }
