@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const axiosInstance = axios.create({
-  baseURL: 'http://localhost:2323/api',
+  baseURL: 'http://127.0.0.1:2323/api',
   timeout: 10000,
   headers: {
     Authorization: 'Bearer ' + (() => {
