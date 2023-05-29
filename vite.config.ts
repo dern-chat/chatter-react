@@ -11,4 +11,8 @@ export default defineConfig({
       '@fonts': path.resolve(__dirname, './src/assets/fonts'),
     },
   },
+  server: {
+    host: '127.0.0.1',
+    port: 5173,
+  },
 })
